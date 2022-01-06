@@ -1,0 +1,22 @@
+# JetBrains
+.idea/
+
+# PNPM
+package-lock.json
+pnpm-lock.yaml
+
+# Typescript
+types/env.d.ts
+
+# Svelte
+.svelte-kit/
+.svelte/
+
+# NodeJS
+node_modules/
+build/
+dist/
+
+# MacOS
+.DS_Store
+*.local
