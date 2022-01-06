@@ -61,11 +61,6 @@ contextMenu({
 	showLookUpSelection: false,
 	showSearchWithGoogle: false,
 	showCopyImage: false,
-	prepend: (defaultActions, params, browserWindow) => [
-		{
-			label: 'Make App 💻',
-		},
-	],
 });
 
 function loadVite(port) {
@@ -90,11 +85,13 @@ function createMainWindow() {
 }
 
 app.once('ready', createMainWindow);
+
 app.on('activate', () => {
 	if (!mainWindow) {
 		createMainWindow();
 	}
 });
+
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') app.quit();
 });

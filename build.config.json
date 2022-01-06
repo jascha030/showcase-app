@@ -1,6 +1,6 @@
 {
-	"appId": "io.jascha030.present",
-	"productName": "Present",
+	"appId": "io.jascha030.showcase",
+	"productName": "ShowCase",
 	"directories": {
 		"output": "dist"
 	},
