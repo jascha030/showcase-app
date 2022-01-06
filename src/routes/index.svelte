@@ -1,18 +1,17 @@
 <script lang="ts">
+import MainMenu from '$lib/components/menu/MainMenu.svelte';
 </script>
 
 <main>
-	<slot>
-	</slot>
+	<MainMenu />
 </main>
 
 <style>
 	:root {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-			Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	}
 
 	:global(body) {
+		background: #212431;
 		margin: 0;
 		padding: 0;
 	}
