@@ -1,9 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../tailwind.css'
+	import { page } from '$app/stores'
 
 	let ready: boolean = false;
 	onMount(() => (ready = true));
+
+	let current: string;
+
+	page.subscribe((data) => {
+		current = data.url.pathname.replace('/', '');
+	})
 </script>
 
 <!--suppress CheckEmptyScriptTag -->
@@ -12,9 +19,7 @@
 
 	</div>
 	<div class='dragbar-title'>
-		<p>
-			Menu
-		</p>
+		<p>{ current }</p>
 	</div>
 	<div class='dragbar-extra'>
 
