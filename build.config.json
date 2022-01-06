@@ -1,0 +1,14 @@
+{
+	"appId": "io.jascha030.present",
+	"productName": "Present",
+	"directories": {
+		"output": "dist"
+	},
+	"files": [
+		"src/electron.cjs",
+		{
+			"from": "build",
+			"to": ""
+		}
+	]
+}
