@@ -16,12 +16,12 @@ let mainWindow;
 
 function createWindow() {
 	let windowState = windowStateManager({
-		defaultWidth: 800,
+		defaultWidth: 1280,
 		defaultHeight: 600,
 	});
 	
 	const mainWindow = new BrowserWindow({
-		backgroundColor: 'whitesmoke',
+		backgroundColor: '#212431',
 		titleBarStyle: 'hidden',
 		autoHideMenuBar: true,
 		trafficLightPosition: {
@@ -29,7 +29,7 @@ function createWindow() {
 			y: 32,
 		},
 		minHeight: 450,
-		minWidth: 500,
+		minWidth: 1280,
 		webPreferences: {
 			enableRemoteModule: true,
 			contextIsolation: true,
@@ -81,8 +81,12 @@ function createMainWindow() {
 	mainWindow = createWindow();
 	mainWindow.once('close', () => { mainWindow = null });
 
-	if (dev) loadVite(port);
-	else serveURL(mainWindow);
+	if (dev) {
+		loadVite(port);
+		mainWindow.webContents.openDevTools();
+	} else {
+		serveURL(mainWindow);
+	}
 }
 
 app.once('ready', createMainWindow);
