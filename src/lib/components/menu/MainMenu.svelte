@@ -1,5 +1,5 @@
 <script lang='ts'>
-
+	import { goto } from '$app/navigation'
 </script>
 
 <div class='menu main'>
@@ -10,7 +10,7 @@
 
 		<div class='menu-list'>
 			<ul>
-				<li>
+				<li on:click={() => goto('/editor')}>
 					<svg xmlns='http://www.w3.org/2000/svg' class='h-8 w-8' fill='none' viewBox='0 0 24 24'
 						 stroke='currentColor'>
 						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2'
@@ -18,7 +18,7 @@
 					</svg>
 					<span>New presentation</span>
 				</li>
-				<li>
+				<li on:click={() => goto('/editor')}>
 					<svg xmlns='http://www.w3.org/2000/svg' class='h-8 w-8' fill='none' viewBox='0 0 24 24'
 						 stroke='currentColor'>
 						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2'
