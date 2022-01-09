@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import '../tailwind.css'
+
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores'
 
 	let ready: boolean = false;
@@ -14,15 +15,13 @@
 </script>
 
 <!--suppress CheckEmptyScriptTag -->
-<div class="dragbar">
+<div class="dragbar { current }">
 	<div class='dragbar-utils'>
-
 	</div>
 	<div class='dragbar-title'>
 		<p>{ current }</p>
 	</div>
 	<div class='dragbar-extra'>
-
 	</div>
 </div>
 
@@ -33,6 +32,10 @@
 <style lang='scss'>
 	.dragbar {
 		@apply border-b border-slate-800 grid grid-cols-3 flex align-middle items-center text-slate-200;
+
+	  	&.presentation {
+		  display: none;
+		}
 
 		-webkit-app-region: drag;
 		position: absolute;
