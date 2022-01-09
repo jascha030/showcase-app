@@ -3,7 +3,7 @@
 
 # PNPM
 package-lock.json
-pnpm-lock.yaml
+# pnpm-lock.yaml
 
 # Typescript
 types/env.d.ts
@@ -20,3 +20,5 @@ dist/
 # MacOS
 .DS_Store
 *.local
+
+src/NITEPAL.xml
