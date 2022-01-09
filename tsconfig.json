@@ -6,7 +6,10 @@
 		"strict": true,
 		"types": ["vite/client", "node"],
 		"typeRoots": ["node_modules/@types"],
-		"lib": ["ESNext"],
+		"lib": [
+          "ESNext",
+          "dom"
+        ],
 		// "target": "es2018",
 		/**
 			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
