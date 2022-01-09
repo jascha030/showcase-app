@@ -1,11 +1,12 @@
 export enum BackgroundType {
 	Color,
-	Image
+	Image,
+	None
 }
 
 export enum SlideLayout {
-	Single,
-	Dual
+	Single= 'center',
+	Dual = 'dual'
 }
 
 export enum SlotContentType {
@@ -29,7 +30,7 @@ export interface SlidePanel {
 }
 
 interface SlideData {
-	index: number,
+	index?: number | undefined,
 	title: string,
 	background: string,
 	layout: SlideLayout,
