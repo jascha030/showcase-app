@@ -1,15 +1,21 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-	purge: [
-		'./src/**/*.html',
-		'./src/**/*.svelte',
-	],
-	content: ['./src/**/*.{html,js}'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {
+		colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
+			black: colors.black,
+			white: colors.white,
+			gray: colors.gray,
+			emerald: colors.emerald,
+			indigo: colors.indigo,
+			yellow: colors.yellow,
+			slate: colors.slate,
 			'background': '#212431',
 			'background-secondary': '#34324a',
 			'background-highlight': '#444267',
-			'white': '#fffbf7',
 			'foreground': '#a6accd',
 			'text': '#676e95',
 			'selection-background': '#717cb4',
@@ -98,6 +104,7 @@ module.exports = {
 			800: '#391054',
 			900: '#190725',
 		},
+		extend: {}
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
