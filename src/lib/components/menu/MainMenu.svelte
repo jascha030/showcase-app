@@ -40,20 +40,17 @@
 			</ul>
 		</div>
 	</div>
-	<div class='panel context'>
-
-	</div>
 </div>
 
 <style lang='scss'>
   .menu {
-    @apply w-screen h-screen flex flex-row;
+    @apply w-screen h-screen flex justify-center align-middle content-center;
 
     .panel {
       @apply p-12 pt-24;
 
 	  &.actions {
-		@apply basis-1/3 bg-background-secondary;
+		@apply bg-background-secondary;
 
         .heading {
           @apply text-white drop-shadow-sm;
@@ -71,15 +68,15 @@
       }
 
       &.context {
-        @apply basis-2/3 bg-background;
+        @apply bg-background;
       }
     }
 
     &-list {
-      @apply text-left text-2xl;
+      @apply text-2xl;
 
       ul {
-        @apply text-left text-slate-300;
+        @apply text-slate-300;
 
         li {
           @apply my-16 cursor-pointer transition-all duration-100 ease-in-out flex;
