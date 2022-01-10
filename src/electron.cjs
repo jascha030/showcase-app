@@ -26,7 +26,7 @@ function createWindow() {
 		autoHideMenuBar: true,
 		trafficLightPosition: {
 			x: 17,
-			y: 32,
+			y: 24,
 		},
 		minHeight: 450,
 		minWidth: 1280,

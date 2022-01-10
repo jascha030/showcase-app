@@ -31,7 +31,7 @@
 
 <style lang='scss'>
 	.dragbar {
-		@apply border-b border-slate-800 grid grid-cols-3 flex align-middle items-center text-slate-200;
+		@apply border-b bg-background border-b-excluded grid grid-cols-3 flex align-middle items-center text-slate-200;
 
 	  	&.presentation {
 		  display: none;
@@ -40,8 +40,7 @@
 		-webkit-app-region: drag;
 		position: absolute;
 		z-index: 100;
-		height: 48px;
-		background: #212431;
+		height: 40px;
 		width: 100%;
 
 		&-utils, &-title, &-extra {
