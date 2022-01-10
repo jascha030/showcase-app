@@ -53,7 +53,7 @@
       @apply p-12 pt-24;
 
 	  &.actions {
-		@apply basis-1/3;
+		@apply basis-1/3 bg-background-secondary;
 
         .heading {
           @apply text-white drop-shadow-sm;
@@ -71,7 +71,7 @@
       }
 
       &.context {
-        @apply basis-2/3 bg-slate-100;
+        @apply basis-2/3 bg-background;
       }
     }
 
