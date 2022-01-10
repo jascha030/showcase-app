@@ -22,6 +22,7 @@ specifiers:
   electron-window-state: ^5.0.3
   eslint: ^7.32.0
   eslint-plugin-svelte: ^1.1.2
+  marked: ^4.0.9
   npm-run-all: ^4.1.5
   postcss: ^8.4.5
   postcss-load-config: ^3.1.1
@@ -40,10 +41,11 @@ dependencies:
   electron-reloader: 1.2.1
   electron-serve: 1.1.0
   electron-window-state: 5.0.3
+  marked: 4.0.9
 
 devDependencies:
   '@sveltejs/adapter-static': 1.0.0-next.24
-  '@sveltejs/kit': 1.0.0-next.218_sass@1.47.0+svelte@3.45.0
+  '@sveltejs/kit': 1.0.0-next.221_sass@1.47.0+svelte@3.45.0
   '@tailwindcss/typography': 0.5.0_tailwindcss@3.0.12
   '@types/electron-window-state': 2.0.34
   '@typescript-eslint/eslint-plugin': 4.33.0_3289a875d95a672b97ebf589745c66ef
@@ -235,8 +237,8 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.218_sass@1.47.0+svelte@3.45.0:
-    resolution: {integrity: sha512-reimVgWaFq0qIvxkKnWE4nq35JFd6yQ6Lkge+o3WkX3hV8CAtrLbSAzFaEIUu5Ph09gJkl2PnqQa32WVDaeBZg==}
+  /@sveltejs/kit/1.0.0-next.221_sass@1.47.0+svelte@3.45.0:
+    resolution: {integrity: sha512-vKok5MdAjkXeql4pjBAotaO3Yp0oTJJI0SIAB1skZiHnW0Ja2AMFZBFGaNhFLNhG+qP+k4NNn9utMifpvY8NbQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -2848,6 +2850,12 @@ packages:
     dependencies:
       semver: 6.3.0
     dev: true
+
+  /marked/4.0.9:
+    resolution: {integrity: sha512-HmoFvQwFLxNESeGupeOC+6CLb5WzcCWQmqvVetsErmrI3vrZ6gBumty5IP0ynLPR0zYSoVY7ITC1GffsYIGkog==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /matcher/3.0.0:
     resolution: {integrity: sha512-OkeDaAZ/bQCxeFAozM55PKcKU0yJMPGifLwV4Qgjitu+5MoAfSQN4lsLJeXZ1b8w0x+/Emda6MZgXS1jvsapng==}
