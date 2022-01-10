@@ -1,16 +1,22 @@
-<script lang="ts">
+<script>
 	import '../tailwind.css'
-
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores'
 
-	let ready: boolean = false;
+	const { ipcRenderer } = window.require('electron')
+
+	let ready = false;
 	onMount(() => (ready = true));
 
-	let current: string;
-
+	let current;
 	page.subscribe((data) => {
 		current = data.url.pathname.replace('/', '');
+	})
+
+	onMount(() => {
+		ipcRenderer.on('fileopened', (_event, { path, content }) => {
+			console.log({ _event, path, content });
+		})
 	})
 </script>
 

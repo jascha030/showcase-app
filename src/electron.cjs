@@ -33,7 +33,7 @@ function createWindow() {
 		minWidth: 1280,
 		webPreferences: {
 			enableRemoteModule: true,
-			contextIsolation: true,
+			contextIsolation: false,
 			nodeIntegration: true,
 			spellcheck: false,
 			devTools: dev,
@@ -69,10 +69,12 @@ function createWindow() {
 					return;
 				}
 
-				mainWindow.webContents.send('fileopened', {
+				const fileData = {
 					path: file[0],
 					content: data,
-				});
+				};
+
+				mainWindow.webContents.send('fileopened', fileData);
 			});
 		}
 	};
@@ -151,4 +153,3 @@ app.on('activate', () => {
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') app.quit();
 });
-
