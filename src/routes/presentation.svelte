@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type SlideData, { SlidePanel } from '$lib/models/slide/SlideData';
-	import { BackgroundType, SlideLayout, SlotContentType } from '$lib/models/slide/SlideData';
+	import type SlideData from '$lib/models/slide/SlideData';
+	import { BackgroundType, SlideLayout, SlotContentType, SlidePanel } from '$lib/models/slide/SlideData';
 	import Slide from '$lib/components/slide/Slide.svelte';
 	import SlideContainer from '$lib/components/slide/SlideContainer.svelte';
 	import { getContext } from 'svelte';
