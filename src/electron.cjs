@@ -1,7 +1,8 @@
 const windowStateManager = require('electron-window-state');
 const contextMenu = require('electron-context-menu');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, MenuItem, ipcRenderer, ipcMain, dialog } = require('electron');
 const serve = require('electron-serve');
+const fs = require('fs');
 
 try {
 	require('electron-reloader')(module);
@@ -9,7 +10,7 @@ try {
 	console.error(e);
 }
 
-const serveURL = serve({ directory: "." });
+const serveURL = serve({ directory: '.' });
 const port = process.env.PORT || 3000;
 const dev = !app.isPackaged;
 let mainWindow;
@@ -19,7 +20,7 @@ function createWindow() {
 		defaultWidth: 1280,
 		defaultHeight: 600,
 	});
-	
+
 	const mainWindow = new BrowserWindow({
 		backgroundColor: '#212431',
 		titleBarStyle: 'hidden',
@@ -54,6 +55,59 @@ function createWindow() {
 		windowState.saveState(mainWindow);
 	});
 
+	const isMac = process.platform === 'darwin';
+
+	const openFile = () => {
+		const file = dialog.showOpenDialogSync(mainWindow, {
+			properties: ['openFile'],
+			filters: [{ name: 'Presentation', extensions: ['json'] }],
+		});
+
+		if (file) {
+			fs.readFile(file[0], 'utf8', (err, data) => {
+				if (err) {
+					return;
+				}
+
+				mainWindow.webContents.send('fileopened', {
+					path: file[0],
+					content: data,
+				});
+			});
+		}
+	};
+
+	const menu = Menu.buildFromTemplate([
+		// { role: 'appMenu' }
+		...(isMac ? [{
+			label: 'ShowCase',
+			submenu: [
+				{ role: 'about' },
+				{ type: 'separator' },
+				{ role: 'services' },
+				{ type: 'separator' },
+				{ role: 'hide' },
+				{ role: 'hideOthers' },
+				{ role: 'unhide' },
+				{ type: 'separator' },
+				{ role: 'quit' },
+			],
+		}] : []),
+		// { role: 'fileMenu' }
+		{
+			label: 'File',
+			submenu: [
+				isMac ? { role: 'close' } : { role: 'quit' },
+				{
+					label: 'Open presentation',
+					accelerator: 'CmdOrCtrl+O',
+					click: openFile
+				}
+			],
+		}]);
+
+	Menu.setApplicationMenu(menu);
+
 	return mainWindow;
 }
 
@@ -74,7 +128,9 @@ function loadVite(port) {
 
 function createMainWindow() {
 	mainWindow = createWindow();
-	mainWindow.once('close', () => { mainWindow = null });
+	mainWindow.once('close', () => {
+		mainWindow = null;
+	});
 
 	if (dev) {
 		loadVite(port);
@@ -95,3 +151,4 @@ app.on('activate', () => {
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') app.quit();
 });
+
